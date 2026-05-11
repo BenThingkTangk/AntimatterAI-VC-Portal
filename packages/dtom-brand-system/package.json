@@ -1,0 +1,58 @@
+{
+  "name": "@nirmata/dtom-brand-system",
+  "version": "1.0.0",
+  "description": "Reusable React/Next.js brand system package for ΔTOM — Nirmata Holdings black-site aerospace cinematic design system.",
+  "author": "Nirmata Holdings",
+  "license": "UNLICENSED",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/dtom-brand-system.css"
+  },
+  "files": [
+    "dist",
+    "public",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react --external react-dom --external next --external gsap --external lucide-react",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "next": ">=14.0.0",
+    "gsap": ">=3.12.0",
+    "lucide-react": ">=0.400.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.5"
+  },
+  "keywords": [
+    "dtom",
+    "atom",
+    "nirmata",
+    "brand-system",
+    "design-system",
+    "react",
+    "nextjs",
+    "aerospace",
+    "cinematic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirmata-holdings/dtom-brand-system-react"
+  }
+}

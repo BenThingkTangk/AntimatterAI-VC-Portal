@@ -17,7 +17,7 @@ export async function askAtomAI(
 
   if (!apiKey) {
     throw new Error(
-      "ATOM AI is not configured. Please set VITE_PERPLEXITY_API_KEY."
+      "ΔTOM AI is not configured. Please set VITE_PERPLEXITY_API_KEY."
     );
   }
 

@@ -82,7 +82,7 @@ const VC_DIMENSIONS = [
     score: 9,
     weight: 20,
     icon: TrendingUp,
-    detail: "$3.2M closed, 2 ATOM Pro deals live ($25K/mo), hundreds in pipeline, $4M+ ClinixAI pipeline",
+    detail: "$3.2M closed, 2 ΔTOM Pro deals live ($25K/mo), hundreds in pipeline, $4M+ ClinixAI pipeline",
     color: "#FFD700",
   },
   {
@@ -623,10 +623,10 @@ export default function TermSheet({ vehicle, onClose }: TermSheetProps) {
               {/* Key statement */}
               <div className="text-center mb-8">
                 <p className="text-white font-['Satoshi'] text-lg md:text-xl font-bold mb-3">
-                  $3.2M closed. 2 ATOM Pro deals live. Near-clean cap table. Early revenue stage.
+                  $3.2M closed. 2 ΔTOM Pro deals live. Near-clean cap table. Early revenue stage.
                 </p>
                 <p className="text-gray-400 text-sm font-['Satoshi'] max-w-2xl mx-auto">
-                  The window to invest at early-revenue pricing closes as ARR scales. Two ATOM Pro contracts are converting now.
+                  The window to invest at early-revenue pricing closes as ARR scales. Two ΔTOM Pro contracts are converting now.
                 </p>
               </div>
 
@@ -706,7 +706,7 @@ export default function TermSheet({ vehicle, onClose }: TermSheetProps) {
                 {[
                   { label: "Investor Deck", href: "/antimatterai_investor_deck.pdf" },
                   { label: "State of Disruption", href: "/antimatterai_state_of_disruption.pdf" },
-                  { label: "ATOM Architecture", href: "/atom_technical_architecture.pdf" },
+                  { label: "ΔTOM Architecture", href: "/atom_technical_architecture.pdf" },
                   { label: "ClinixAI Overview", href: "/clinixai_overview.pdf" },
                 ].map((doc) => (
                   <a
