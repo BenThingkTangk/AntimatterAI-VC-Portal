@@ -1039,7 +1039,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--dtom-space-4) var(--dtom-space-6);
+  padding: var(--dtom-space-3) var(--dtom-space-6);
   border-bottom: 1px solid var(--dtom-color-border);
   gap: var(--dtom-space-4);
   flex-shrink: 0;
@@ -1065,7 +1065,7 @@
   flex: 1;
   position: relative;
   overflow: hidden;
-  margin: var(--dtom-space-6);
+  margin: var(--dtom-space-4) var(--dtom-space-6) var(--dtom-space-2);
   border-radius: var(--dtom-radius-xl);
   border: 1px solid var(--dtom-color-border-strong);
   background: #000;
@@ -1113,13 +1113,14 @@ img.dtom-keynote__screenshot {
 
 /* Caption */
 .dtom-keynote__caption {
-  padding: var(--dtom-space-3) var(--dtom-space-6);
+  padding: var(--dtom-space-2) var(--dtom-space-6);
   font-family: var(--dtom-font-mono);
   font-size: var(--dtom-text-xs);
   color: var(--dtom-color-text-faint);
   letter-spacing: 0.08em;
   border-top: 1px solid var(--dtom-color-divider);
   flex-shrink: 0;
+  line-height: 1.4;
 }
 
 /* Score ring */

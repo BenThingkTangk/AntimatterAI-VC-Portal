@@ -92,10 +92,15 @@ function ScrollProgress() {
 
 export default function DeltaDoctrine() {
   const sectionRef = useRef(null);
-  const headerInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const headerInView = useInView(sectionRef, { once: true, margin: "0px" });
 
   return (
-    <div id="doctrine" className="bg-black py-32 px-4 relative overflow-hidden">
+    <div id="doctrine" className="bg-black pt-12 md:pt-16 pb-32 px-4 relative overflow-hidden">
+      {/* Bridge from keynote: tiny inset divider so the seam doesn't read as dead space */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00e6d3]/40 to-transparent"
+      />
       {/* Background radial gradient */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(0,230,211,0.06)_0%,transparent_70%)]" />
@@ -103,7 +108,7 @@ export default function DeltaDoctrine() {
 
       <div className="max-w-5xl mx-auto relative" ref={sectionRef}>
         {/* Section header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
