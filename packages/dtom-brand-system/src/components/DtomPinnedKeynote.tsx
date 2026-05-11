@@ -139,42 +139,48 @@ export function DtomPinnedKeynote({
 
   const activeChapter = chapters[activeIndex] ?? chapters[0];
 
-  // GSAP ScrollTrigger pin setup (desktop + motion-OK only)
+  // Scroll-driven chapter advancement. Self-contained (no GSAP dep) —
+  // pinning is handled by CSS `position: sticky` on the stage; this just
+  // maps scroll progress within the section to an active chapter index.
   useEffect(() => {
     if (reducedMotion || isNarrow || !pinEnabled) return;
     if (typeof window === 'undefined') return;
-
-    const gsap = (window as unknown as Record<string, unknown>).gsap as typeof import('gsap').gsap | undefined;
-    const ScrollTrigger = (window as unknown as Record<string, unknown>).ScrollTrigger as
-      (typeof import('gsap/ScrollTrigger').ScrollTrigger) | undefined;
-
-    if (!gsap || !ScrollTrigger) return;
-
-    gsap.registerPlugin(ScrollTrigger);
+    const section = sectionRef.current;
+    if (!section) return;
 
     const chapterCount = chapters.length;
+    let raf = 0;
 
-    const st = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top top',
-      end: `+=${chapterCount * 100}%`,
-      scrub: true,
-      pin: stageRef.current,
-      pinSpacing: false,
-      anticipatePin: 1,
-      onUpdate: (self: { progress: number }) => {
-        const idx = Math.min(
-          Math.floor(self.progress * chapterCount),
-          chapterCount - 1
-        );
-        setActiveIndex(idx);
-      },
-    });
-
-    return () => {
-      st.kill();
+    const update = () => {
+      raf = 0;
+      const rect = section.getBoundingClientRect();
+      const viewportH = window.innerHeight || 1;
+      // Pinned scroll window = section height minus one viewport (sticky stage occupies 100vh).
+      const pinnedDistance = Math.max(1, rect.height - viewportH);
+      // Progress: 0 when section's top hits viewport top, 1 when bottom hits viewport bottom.
+      const scrolled = Math.min(Math.max(-rect.top, 0), pinnedDistance);
+      const progress = scrolled / pinnedDistance;
+      const idx = Math.min(
+        Math.floor(progress * chapterCount),
+        chapterCount - 1
+      );
+      setActiveIndex((prev) => (prev === idx ? prev : idx));
     };
-  }, [reducedMotion, isNarrow, pinEnabled, chapters]);
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      if (raf) window.cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, [reducedMotion, isNarrow, pinEnabled, chapters.length]);
 
   const openDossier = useCallback(
     (chapter: SalesDominatorChapter, triggerEl: HTMLElement | null) => {
@@ -267,12 +273,17 @@ export function DtomPinnedKeynote({
     );
   }
 
-  // Pinned desktop layout
+  // Pinned desktop layout.
+  // Section height = pinned scroll window + 100vh (sticky stage). Each chapter
+  // gets `chapterDwellVh` of scroll. Keep it tight so the section ends right
+  // when the last chapter has had its moment — no dead trailing scroll.
+  const chapterDwellVh = 45;
+  const sectionHeightVh = chapters.length * chapterDwellVh + 100;
   return (
     <section
       ref={sectionRef}
       className={`dtom-keynote ${className}`.trim()}
-      style={{ height: `${chapters.length * 100}vh` }}
+      style={{ height: `${sectionHeightVh}vh` }}
       aria-label="ΔTOM Sales Dominator — pinned chapter keynote"
     >
       {/* Sticky stage */}
