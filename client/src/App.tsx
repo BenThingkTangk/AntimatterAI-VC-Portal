@@ -4,6 +4,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { DtomBrandShell } from "@nirmata/dtom-brand-system";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 
@@ -20,10 +21,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router hook={useHashLocation}>
-          <AppRouter />
-        </Router>
+        <DtomBrandShell assetBasePath="/dtom-assets" theme="dark" brand="atom">
+          <Toaster />
+          <Router hook={useHashLocation}>
+            <AppRouter />
+          </Router>
+        </DtomBrandShell>
       </TooltipProvider>
     </QueryClientProvider>
   );

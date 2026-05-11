@@ -340,7 +340,7 @@ function AgenticExplosion() {
         <div className="p-5 rounded-xl border border-[#00e6d3]/20 bg-[#00e6d3]/4">
           <p className="text-[#00e6d3] text-sm font-bold font-['Satoshi'] mb-1">Native, Not Retrofitted</p>
           <p className="text-white/60 text-sm font-['Satoshi']">
-            ATOM was built from the ground up as an agentic framework. Not retrofitted. Not rebranded. <span className="text-white font-semibold">Native.</span>
+            ΔTOM was built from the ground up as an agentic framework. Not retrofitted. Not rebranded. <span className="text-white font-semibold">Native.</span>
           </p>
         </div>
       </RevealDiv>
@@ -495,7 +495,7 @@ function NervousSystemAnalogy() {
       <RevealDiv delay={0.3}>
         <div className="rounded-2xl border border-white/10 bg-white/2 overflow-hidden">
           <div className="px-6 py-4 border-b border-white/5 bg-white/2">
-            <h4 className="font-['Satoshi'] font-bold text-white text-sm">Model Companies vs. ATOM</h4>
+            <h4 className="font-['Satoshi'] font-bold text-white text-sm">Model Companies vs. ΔTOM</h4>
           </div>
           {[
             { model: "Monetize tokens/seats", atom: "Monetize deployed digital workers" },
@@ -679,7 +679,7 @@ function FiveForces() {
           All Favoring <span className="text-[#00e6d3]">Nirmata Holdings</span>
         </h3>
         <p className="text-white/50 text-lg max-w-2xl mx-auto font-['Satoshi']">
-          Five macro forces are converging simultaneously — and ATOM sits at the intersection of all of them.
+          Five macro forces are converging simultaneously — and ΔTOM sits at the intersection of all of them.
         </p>
       </div>
 
@@ -720,7 +720,7 @@ function CompetitivePosition() {
       <div className="text-center mb-12">
         <SectionLabel>Competitive Position</SectionLabel>
         <h3 className="font-['Satoshi'] font-bold text-white text-4xl md:text-5xl mb-4">
-          ATOM's <span className="text-[#00e6d3]">Structural Edge</span>
+          ΔTOM's <span className="text-[#00e6d3]">Structural Edge</span>
         </h3>
         <p className="text-white/50 text-lg max-w-2xl mx-auto font-['Satoshi']">
           Security-forward, trust-centric, and infrastructure-neutral — a unique position in enterprise AI.
@@ -769,7 +769,7 @@ function CompetitivePosition() {
               </div>
             </div>
           ))}
-          {/* ATOM row */}
+          {/* ΔTOM row */}
           <div className="grid grid-cols-12 gap-4 px-6 py-4 items-center bg-[#00e6d3]/5 border-t border-[#00e6d3]/20">
             <div className="col-span-2">
               <span className="text-[#00e6d3] text-sm font-bold font-['Satoshi']">Nirmata Holdings</span>

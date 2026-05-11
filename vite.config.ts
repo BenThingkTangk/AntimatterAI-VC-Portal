@@ -9,6 +9,14 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "client", "src"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@nirmata/dtom-brand-system/styles": path.resolve(
+        import.meta.dirname,
+        "packages/dtom-brand-system/src/styles/dtom-brand-system.css"
+      ),
+      "@nirmata/dtom-brand-system": path.resolve(
+        import.meta.dirname,
+        "packages/dtom-brand-system/src/index.ts"
+      ),
     },
   },
   root: path.resolve(import.meta.dirname, "client"),

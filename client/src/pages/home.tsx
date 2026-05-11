@@ -27,6 +27,11 @@ import DeltaDoctrine from "@/components/DeltaDoctrine";
 import FortressMoat from "@/components/FortressMoat";
 import InvasionPlan from "@/components/InvasionPlan";
 import TheAsk from "@/components/TheAsk";
+import {
+  DtomLogo,
+  DtomBootLoader,
+  DtomPinnedKeynote,
+} from "@nirmata/dtom-brand-system";
 
 /* ══════════════════════════════════════════════════════════════════
    UTILITY HOOKS
@@ -211,7 +216,7 @@ const NAV_SECTIONS = [
 
 const PRODUCTS = [
   {
-    name: "ATOM Enterprise AI",
+    name: "ΔTOM Enterprise AI",
     slug: "enterprise-ai",
     tagline: "The Governance Backbone",
     icon: Shield,
@@ -223,7 +228,7 @@ const PRODUCTS = [
     url: "https://www.nirmataholdings.com/enterprise-ai",
   },
   {
-    name: "ATOM Voice Agent",
+    name: "ΔTOM Voice Agent",
     slug: "voice-agents",
     tagline: "Empathic Voice Intelligence",
     icon: Mic,
@@ -235,7 +240,7 @@ const PRODUCTS = [
     url: "https://www.nirmataholdings.com/voice-agent-demo",
   },
   {
-    name: "ATOM Agentic (AgenticIQ)",
+    name: "ΔTOM Agentic (AgenticIQ)",
     slug: "agentic-ai",
     tagline: "Autonomous Digital Workers",
     icon: Cpu,
@@ -247,7 +252,7 @@ const PRODUCTS = [
     url: "https://www.nirmataholdings.com/agentic-ai",
   },
   {
-    name: "ATOM IntentIQ",
+    name: "ΔTOM IntentIQ",
     slug: "atom-intentiq",
     tagline: "6-Step Intent Discovery",
     icon: Search,
@@ -259,7 +264,7 @@ const PRODUCTS = [
     url: "https://www.nirmataholdings.com/atom-intentiq",
   },
   {
-    name: "ATOM GIS / Infrastructure Atlas",
+    name: "ΔTOM GIS / Infrastructure Atlas",
     slug: "data-center-map",
     tagline: "Global Infrastructure Intelligence",
     icon: MapPin,
@@ -271,7 +276,7 @@ const PRODUCTS = [
     url: "https://www.nirmataholdings.com/data-center-map",
   },
   {
-    name: "ATOM Browser",
+    name: "ΔTOM Browser",
     slug: "atom/search",
     tagline: "AI-Native Quantum Browser",
     icon: Globe,
@@ -284,7 +289,7 @@ const PRODUCTS = [
     ctaLabel: "Get Early Access",
   },
   {
-    name: "ATOM Dynamic Matrices",
+    name: "ΔTOM Dynamic Matrices",
     slug: "",
     tagline: "Interactive Vendor Intelligence",
     icon: Grid3X3,
@@ -332,7 +337,7 @@ const PRODUCTS = [
     url: "https://www.vidzee.ai",
   },
   {
-    name: "ATOM Red Team",
+    name: "ΔTOM Red Team",
     slug: "atom-red-team",
     tagline: "Automated AI security & adversarial testing",
     icon: Shield,
@@ -402,7 +407,7 @@ const VENDOR_CAPS = [
 
 type VendorStatus = "yes" | "no" | "partial";
 const VENDOR_DATA: Record<string, VendorStatus[]> = {
-  "ATOM":       ["yes","yes","yes","yes","yes","yes","yes","yes"],
+  "ΔTOM":       ["yes","yes","yes","yes","yes","yes","yes","yes"],
   "Sierra":     ["no","no","no","partial","partial","no","no","no"],
   "Microsoft":  ["no","no","partial","no","partial","no","no","no"],
   "Google":     ["no","no","partial","no","partial","no","partial","no"],
@@ -412,7 +417,7 @@ const VENDOR_DATA: Record<string, VendorStatus[]> = {
 };
 
 const VENDOR_SCORES: Record<string, number> = {
-  "ATOM": 25, "Sierra": 19, "Microsoft": 17, "Google": 16, "Cognigy": 16, "Amazon": 15, "Kore.ai": 14,
+  "ΔTOM": 25, "Sierra": 19, "Microsoft": 17, "Google": 16, "Cognigy": 16, "Amazon": 15, "Kore.ai": 14,
 };
 
 const MOAT_LAYERS = [
@@ -440,10 +445,10 @@ const TAM_MARKETS = [
 ];
 
 const ATOM_TIERS = [
-  { name: "Atom Starter", price: "$5K–$10K/mo", annual: "$60K–$120K/yr", gm: "~83% GM", desc: "Mid-market entry · Up to 3 agents · 100K interactions/mo · Cloud deploy", color: "#00e6d3" },
-  { name: "Atom Professional", price: "$25K/mo", annual: "$300K/yr", gm: "~83% GM", desc: "POV ENTRY POINT · 10 agents · 500K interactions/mo · 90-day POV start", color: "#00a7ff", featured: true },
-  { name: "Atom Enterprise", price: "$65K/mo", annual: "$780K/yr", gm: "~80% GM", desc: "Full platform · Unlimited agents · VPC + on-prem · Zero upfront", color: "#b987ff" },
-  { name: "Atom Custom", price: "Custom/mo", annual: "Negotiated annually", gm: "~75% GM", desc: "Multi-tenant white-label · Revenue share · Partner ecosystem", color: "#ffd166" },
+  { name: "ΔTOM Starter", price: "$5K–$10K/mo", annual: "$60K–$120K/yr", gm: "~83% GM", desc: "Mid-market entry · Up to 3 agents · 100K interactions/mo · Cloud deploy", color: "#00e6d3" },
+  { name: "ΔTOM Professional", price: "$25K/mo", annual: "$300K/yr", gm: "~83% GM", desc: "POV ENTRY POINT · 10 agents · 500K interactions/mo · 90-day POV start", color: "#00a7ff", featured: true },
+  { name: "ΔTOM Enterprise", price: "$65K/mo", annual: "$780K/yr", gm: "~80% GM", desc: "Full platform · Unlimited agents · VPC + on-prem · Zero upfront", color: "#b987ff" },
+  { name: "ΔTOM Custom", price: "Custom/mo", annual: "Negotiated annually", gm: "~75% GM", desc: "Multi-tenant white-label · Revenue share · Partner ecosystem", color: "#ffd166" },
 ];
 
 const CLINIX_TIERS = [
@@ -462,13 +467,13 @@ const FINANCIAL_PROJECTIONS = [
 ];
 
 const RADAR_DATA = [
-  { subject: "IP Ownership", ATOM: 100, Competitors: 20 },
-  { subject: "GenUI", ATOM: 100, Competitors: 0 },
-  { subject: "Hybrid Deploy", ATOM: 100, Competitors: 35 },
-  { subject: "Model-Agnostic", ATOM: 100, Competitors: 40 },
-  { subject: "Post-Quantum", ATOM: 100, Competitors: 0 },
-  { subject: "HIPAA+SOC2", ATOM: 100, Competitors: 55 },
-  { subject: "Agentic", ATOM: 100, Competitors: 45 },
+  { subject: "IP Ownership", "ΔTOM": 100, Competitors: 20 },
+  { subject: "GenUI", "ΔTOM": 100, Competitors: 0 },
+  { subject: "Hybrid Deploy", "ΔTOM": 100, Competitors: 35 },
+  { subject: "Model-Agnostic", "ΔTOM": 100, Competitors: 40 },
+  { subject: "Post-Quantum", "ΔTOM": 100, Competitors: 0 },
+  { subject: "HIPAA+SOC2", "ΔTOM": 100, Competitors: 55 },
+  { subject: "Agentic", "ΔTOM": 100, Competitors: 45 },
 ];
 
 const COMP_TABLE = [
@@ -490,8 +495,8 @@ const FUNDS_ALLOCATION = [
 ];
 
 const MILESTONES = [
-  { month: "Q1 2026 (NOW)", target: "Just closed $3.2M. 2 deals at $25K/mo ATOM Professional closing. Hundreds of deals in pipeline.", icon: Rocket, color: "#00e6d3" },
-  { month: "Q2–Q3 2026", target: "Series A close $25M–$50M. 50–100 ATOM Professional/Enterprise deals on 36-mo terms. ARR exits Y1 at $25M–$45M.", icon: TrendingUp, color: "#00e6d3" },
+  { month: "Q1 2026 (NOW)", target: "Just closed $3.2M. 2 deals at $25K/mo ΔTOM Professional closing. Hundreds of deals in pipeline.", icon: Rocket, color: "#00e6d3" },
+  { month: "Q2–Q3 2026", target: "Series A close $25M–$50M. 50–100 ΔTOM Professional/Enterprise deals on 36-mo terms. ARR exits Y1 at $25M–$45M.", icon: TrendingUp, color: "#00e6d3" },
   { month: "Year 2 (2027)", target: "Cross-sell flywheel hits — Sales Dominator + Red Team + Game Console + ClinixAI converging. ARR $75M–$130M.", icon: Crown, color: "#00D4FF" },
   { month: "Year 3 (2028)", target: "Unicorn threshold crossed. ARR $175M–$290M. Series B at $1B+ pre-money. International expansion (APAC, EU).", icon: Star, color: "#FFD700" },
   { month: "Year 5 (2030)", target: "$550M–$850M ARR. EBITDA-positive at 35–42% margin. IPO/strategic exit at $14B–$21B valuation.", icon: Trophy, color: "#A855F7" },
@@ -605,7 +610,7 @@ function StatCounter({ value, prefix = "", suffix = "", label }: { value: number
    ══════════════════════════════════════════════════════════════════ */
 
 function VendorCell({ status, vendor }: { status: VendorStatus; vendor: string }) {
-  if (vendor === "ATOM") {
+  if (vendor === "ΔTOM") {
     return (
       <div className="flex items-center justify-center">
         <span className="inline-flex items-center gap-1 text-[#00e6d3] font-bold text-sm">
@@ -693,9 +698,10 @@ function StickyNav() {
           <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <button
               onClick={() => scrollTo("hero")}
-              className="font-['Satoshi'] font-bold text-white text-lg tracking-tight hover:text-[#00e6d3] transition-colors"
+              className="flex items-center gap-3 font-['Satoshi'] font-bold text-white text-lg tracking-tight hover:text-[#00e6d3] transition-colors"
             >
-              Nirmata <span className="text-[#00e6d3]">Holdings</span>
+              <DtomLogo size="sm" spinning showWordmark={false} />
+              <span>Nirmata <span className="text-[#00e6d3]">Holdings</span></span>
             </button>
 
             {/* Desktop nav */}
@@ -943,7 +949,7 @@ function QuantumSection() {
               <h3 className="font-['Satoshi'] font-bold text-white text-lg">Human + AI Symbiosis</h3>
             </div>
             <p className="text-white/60 text-sm font-['Satoshi'] leading-relaxed">
-              AI augments human creativity and judgment — it does not replace them. Every agentic system we build includes human governance checkpoints. The fusion of emotional intelligence and machine capability is what makes ATOM different from pure automation plays.
+              AI augments human creativity and judgment — it does not replace them. Every agentic system we build includes human governance checkpoints. The fusion of emotional intelligence and machine capability is what makes ΔTOM different from pure automation plays.
             </p>
           </div>
         </RevealDiv>
@@ -1042,7 +1048,7 @@ function CompanySection() {
     { label: "Funding", value: "$3.2M Just Closed" },
     { label: "Projects Delivered", value: "99+" },
     { label: "Client Satisfaction", value: "99%+" },
-    { label: "Active Deals", value: "2 ATOM Pro @ $25K/mo" },
+    { label: "Active Deals", value: "2 ΔTOM Pro @ $25K/mo" },
     { label: "Vendor Score", value: "25/25 (Internal Framework)" },
     { label: "Products", value: "15 in Portfolio" },
   ];
@@ -1056,7 +1062,7 @@ function CompanySection() {
             Company <span className="text-[#00e6d3]">Overview</span>
           </h2>
           <p className="text-white/50 text-lg max-w-2xl mx-auto font-['Satoshi']">
-            While GPT, Claude, and Grok are the brains — ATOM is the nervous system and spine.
+            While GPT, Claude, and Grok are the brains — ΔTOM is the nervous system and spine.
           </p>
         </RevealDiv>
 
@@ -1135,7 +1141,7 @@ function CompanySection() {
             <p className="text-white/40 text-sm font-['Satoshi'] uppercase tracking-widest mb-4">Core Positioning</p>
             <p className="font-['Satoshi'] font-bold text-white text-2xl md:text-3xl leading-snug">
               "While GPT, Claude, and Grok are the <span className="text-[#00e6d3]">brains</span> —
-              <br />ATOM is the <span className="text-[#00e6d3]">nervous system</span> and spine."
+              <br />ΔTOM is the <span className="text-[#00e6d3]">nervous system</span> and spine."
             </p>
           </div>
         </RevealDiv>
@@ -1162,7 +1168,7 @@ function VendorMatrixSection() {
             The <span className="text-[#00e6d3]">25/25</span> Framework
           </h2>
           <p className="text-white/50 text-lg max-w-2xl mx-auto font-['Satoshi']">
-            Every critical enterprise AI capability, transparently scored. We developed a 25-dimension framework to evaluate enterprise AI platforms. Atom currently achieves full support across all 25 dimensions. We encourage enterprises to adapt or extend this framework to their own needs.
+            Every critical enterprise AI capability, transparently scored. We developed a 25-dimension framework to evaluate enterprise AI platforms. ΔTOM currently achieves full support across all 25 dimensions. We encourage enterprises to adapt or extend this framework to their own needs.
           </p>
         </RevealDiv>
 
@@ -1170,9 +1176,9 @@ function VendorMatrixSection() {
         <div className="grid grid-cols-4 md:grid-cols-7 gap-4 mb-12">
           {vendors.map((v, i) => (
             <RevealDiv key={v} delay={i * 0.07}>
-              <div className={`p-4 rounded-xl text-center border ${v === "ATOM" ? "border-[#00e6d3]/40 bg-[#00e6d3]/8" : "border-white/10 bg-white/3"}`}>
-                <div className={`text-3xl font-bold font-['Satoshi'] mb-1 ${v === "ATOM" ? "text-[#00e6d3]" : "text-white/60"}`}>
-                  {v === "ATOM" && inView ? (
+              <div className={`p-4 rounded-xl text-center border ${v === "ΔTOM" ? "border-[#00e6d3]/40 bg-[#00e6d3]/8" : "border-white/10 bg-white/3"}`}>
+                <div className={`text-3xl font-bold font-['Satoshi'] mb-1 ${v === "ΔTOM" ? "text-[#00e6d3]" : "text-white/60"}`}>
+                  {v === "ΔTOM" && inView ? (
                     <motion.span initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, type: "spring" }}>
                       25
                     </motion.span>
@@ -1180,8 +1186,8 @@ function VendorMatrixSection() {
                     VENDOR_SCORES[v]
                   )}
                 </div>
-                <div className={`text-xs font-['Satoshi'] ${v === "ATOM" ? "text-[#00e6d3]/70" : "text-white/40"}`}>{v}</div>
-                <div className={`text-xs font-['Satoshi'] ${v === "ATOM" ? "text-[#00e6d3]" : "text-white/30"}`}>/ 25</div>
+                <div className={`text-xs font-['Satoshi'] ${v === "ΔTOM" ? "text-[#00e6d3]/70" : "text-white/40"}`}>{v}</div>
+                <div className={`text-xs font-['Satoshi'] ${v === "ΔTOM" ? "text-[#00e6d3]" : "text-white/30"}`}>/ 25</div>
               </div>
             </RevealDiv>
           ))}
@@ -1196,7 +1202,7 @@ function VendorMatrixSection() {
                 <tr className="border-b border-white/10 bg-white/3">
                   <th className="text-left px-5 py-4 text-white/50 text-xs font-semibold font-['Satoshi'] uppercase tracking-wider">Capability</th>
                   {vendors.map((v) => (
-                    <th key={v} className={`text-center px-4 py-4 text-xs font-bold font-['Satoshi'] ${v === "ATOM" ? "text-[#00e6d3]" : "text-white/50"}`}>
+                    <th key={v} className={`text-center px-4 py-4 text-xs font-bold font-['Satoshi'] ${v === "ΔTOM" ? "text-[#00e6d3]" : "text-white/50"}`}>
                       {v}
                     </th>
                   ))}
@@ -1234,7 +1240,7 @@ function VendorMatrixSection() {
                 <PolarGrid stroke="rgba(255,255,255,0.07)" />
                 <PolarAngleAxis dataKey="subject" tick={{ fill: "rgba(255,255,255,0.5)", fontSize: 11, fontFamily: "Satoshi" }} />
                 <PolarRadiusAxis tick={false} axisLine={false} />
-                <Radar name="ATOM" dataKey="ATOM" stroke="#00e6d3" fill="#00e6d3" fillOpacity={0.15} strokeWidth={2} />
+                <Radar name="ΔTOM" dataKey="ΔTOM" stroke="#00e6d3" fill="#00e6d3" fillOpacity={0.15} strokeWidth={2} />
                 <Radar name="Competitors (avg)" dataKey="Competitors" stroke="#00e6d3" fill="#00e6d3" fillOpacity={0.1} strokeWidth={1.5} strokeDasharray="4 4" />
                 <Legend formatter={(v) => <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>{v}</span>} />
               </RadarChart>
@@ -1254,7 +1260,7 @@ function VendorMatrixSection() {
                 />
                 <Bar dataKey="score" radius={[4, 4, 0, 0]}>
                   {vendors.map((v) => (
-                    <Cell key={v} fill={v === "ATOM" ? "#00e6d3" : "#00e6d3"} fillOpacity={v === "ATOM" ? 1 : 0.5} />
+                    <Cell key={v} fill={v === "ΔTOM" ? "#00e6d3" : "#00e6d3"} fillOpacity={v === "ΔTOM" ? 1 : 0.5} />
                   ))}
                 </Bar>
               </BarChart>
@@ -1618,7 +1624,7 @@ function MarketSection() {
           <div className="p-6 rounded-2xl border border-[#00e6d3]/20 bg-[#00e6d3]/5">
             <h3 className="font-['Satoshi'] font-bold text-white text-xl mb-3">Why Not Winner-Take-All?</h3>
             <p className="text-white/60 text-sm font-['Satoshi'] leading-relaxed">
-              Enterprise AI does not exhibit the network effects that create winner-take-all dynamics in consumer platforms. Instead, it competes on deployment flexibility, regulatory compliance, and customer trust. This means multiple large players can coexist — and a differentiated, governance-first platform like ATOM can capture meaningful share without needing to defeat Big Tech head-on.
+              Enterprise AI does not exhibit the network effects that create winner-take-all dynamics in consumer platforms. Instead, it competes on deployment flexibility, regulatory compliance, and customer trust. This means multiple large players can coexist — and a differentiated, governance-first platform like ΔTOM can capture meaningful share without needing to defeat Big Tech head-on.
             </p>
           </div>
         </RevealDiv>
@@ -1680,7 +1686,7 @@ function GTMSection() {
         {/* Traction Signals */}
         <RevealDiv delay={0.15} className="mb-16">
           <div className="p-6 rounded-2xl border border-[#FFD700]/20 bg-[#FFD700]/4">
-            <h3 className="font-['Satoshi'] font-bold text-white text-xl mb-4">Traction Signals <span className="text-white/40 text-sm font-['Satoshi'] font-normal">($3.2M Closed · 2 ATOM Pro Deals Live)</span></h3>
+            <h3 className="font-['Satoshi'] font-bold text-white text-xl mb-4">Traction Signals <span className="text-white/40 text-sm font-['Satoshi'] font-normal">($3.2M Closed · 2 ΔTOM Pro Deals Live)</span></h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
                 "99+ enterprise projects delivered across Fortune 500 clients",
@@ -1830,7 +1836,7 @@ function RevenueSection() {
               <p className="text-white/40 text-[11px] font-['Satoshi'] italic mt-2">Annual figure (Y1 cumulative). Not monthly. $105K of new MRR added each month × 78 MRR-months (1+2+...+12) = $8.19M recognized revenue in Year 1.</p>
             </div>
           </div>
-          <p className="text-white/50 text-sm font-['Satoshi'] italic">Illustrating SaaS compounding across the ΔTOM portfolio. $3.2M closed, 2 ATOM Professional deals live at $25K/mo. Real demand is hundreds of deals — the $8.19M is the floor, not the ceiling.</p>
+          <p className="text-white/50 text-sm font-['Satoshi'] italic">Illustrating SaaS compounding across the ΔTOM portfolio. $3.2M closed, 2 ΔTOM Professional deals live at $25K/mo. Real demand is hundreds of deals — the $8.19M is the floor, not the ceiling.</p>
         </RevealDiv>
 
         {/* Interactive Y1 simulator - 3 product flywheels with month scrubber */}
@@ -2222,10 +2228,10 @@ function ValuationSection() {
       midpoint: "$200M",
       color: "#00D4FF",
       icon: Globe,
-      desc: "ClinixAI $4M+ pipeline + $3.2M closed + 2 live ATOM Pro deals ($600K ARR/$1.8M TCV). 15-product platform premium across multiple verticals.",
+      desc: "ClinixAI $4M+ pipeline + $3.2M closed + 2 live ΔTOM Pro deals ($600K ARR/$1.8M TCV). 15-product platform premium across multiple verticals.",
       items: [
         { label: "ClinixAI pipeline", value: "$4M+ qualified pipeline" },
-        { label: "ATOM Professional (2 live)", value: "$600K ARR / $1.8M TCV" },
+        { label: "ΔTOM Professional (2 live)", value: "$600K ARR / $1.8M TCV" },
         { label: "Forward multiple", value: "15–25x" },
         { label: "Active revenue base", value: "$60–100M standalone" },
         { label: "Platform premium (15 products)", value: "+$60–180M" },
@@ -2695,7 +2701,7 @@ function EthicsSection() {
 
 function HonestGapAnalysis() {
   const gaps = [
-    { title: "Early Revenue Stage", desc: "$3.2M closed. 2 ATOM Professional deals live at $25K/mo ($600K ARR / $1.8M TCV). Hundreds of deals in pipeline. Still building first full-year cohort data.", icon: DollarSign, status: "Building" },
+    { title: "Early Revenue Stage", desc: "$3.2M closed. 2 ΔTOM Professional deals live at $25K/mo ($600K ARR / $1.8M TCV). Hundreds of deals in pipeline. Still building first full-year cohort data.", icon: DollarSign, status: "Building" },
     { title: "4 Products in Early Stage", desc: "ΔTOM Game Console, ΔTOM Sales Dominator, PhysioPS/HumanOS, and MoleculeAI are in LIMITED BETA or R&D. Not all 15 products are production-ready.", icon: AlertCircle, status: "In Progress" },
     { title: "First 12-Month Cohort Data", desc: "We are building our first 12-month customer cohort data. NRR, churn, and expansion metrics will mature over the next 2–3 quarters.", icon: LineChart, status: "Building" },
     { title: "Key Hires Needed", desc: "Head of Engineering, Clinical Advisor, and Security Advisor roles are open. These are critical for scaling the next phase.", icon: Users, status: "Hiring" },
@@ -2755,11 +2761,17 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
+            <div className="flex items-center gap-3 mb-3">
+              <DtomLogo size="md" spinning={false} showWordmark />
+            </div>
             <div className="font-['Satoshi'] font-bold text-white text-2xl mb-3">
               Nirmata <span className="text-[#00e6d3]">Holdings</span>
             </div>
-            <p className="text-white/40 text-sm font-['Satoshi'] max-w-xs leading-relaxed mb-5">
+            <p className="text-white/40 text-sm font-['Satoshi'] max-w-xs leading-relaxed mb-2">
               The nervous system of enterprise AI. Building the quantum future of human-machine symbiosis.
+            </p>
+            <p className="text-white/30 text-xs font-['Satoshi'] mb-5">
+              Active sub-brand registry: <span className="text-white/60">Nirmata Holdings · ΔTOM · AntimatterAI</span> · <span className="text-white/40">AtomDominator.com</span>
             </p>
             <p className="text-white/20 text-xs font-['Satoshi']">
               CONFIDENTIAL — FOR QUALIFIED INVESTORS ONLY<br />
@@ -2843,6 +2855,7 @@ function CursorGlow() {
    ══════════════════════════════════════════════════════════════════ */
 
 export default function Home() {
+  const [bootReady, setBootReady] = useState(false);
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden">
       {/* Global effects */}
@@ -2850,12 +2863,20 @@ export default function Home() {
       <StickyNav />
       <CursorGlow />
 
+      {/* ΔTOM boot loader — cinematic ignition before the portal lands. */}
+      <DtomBootLoader
+        active={!bootReady}
+        onComplete={() => setBootReady(true)}
+        minimumDrama={2200}
+      />
+
       {/* All sections */}
       <HeroSection />
       <QuantumSection />
       <CompanySection />
       <VendorMatrixSection />
       <ProductsSection />
+      <DtomPinnedKeynote assetBasePath="/dtom-assets" />
       <DeltaDoctrine />
       <MoatSection />
       <FortressMoat />

@@ -153,7 +153,7 @@ const tamData = [
 ];
 
 const vendorScores = [
-  { vendor: "Atom", score: 25, isAtom: true },
+  { vendor: "ΔTOM", score: 25, isAtom: true },
   { vendor: "Kore.ai", score: 17, isAtom: false },
   { vendor: "IBM watsonx", score: 16, isAtom: false },
   { vendor: "Cognigy", score: 15, isAtom: false },
@@ -167,7 +167,7 @@ const vendorScores = [
 ];
 
 const competitorMatrix = [
-  { vendor: "Atom", ip: "full", deploy: "full", genui: "full", modelAgnostic: "full", postQuantum: "full", total: "25/25" },
+  { vendor: "ΔTOM", ip: "full", deploy: "full", genui: "full", modelAgnostic: "full", postQuantum: "full", total: "25/25" },
   { vendor: "Kore.ai", ip: "partial", deploy: "partial", genui: "none", modelAgnostic: "full", postQuantum: "none", total: "17/25" },
   { vendor: "IBM watsonx", ip: "none", deploy: "partial", genui: "none", modelAgnostic: "partial", postQuantum: "none", total: "16/25" },
   { vendor: "Cognigy", ip: "none", deploy: "none", genui: "none", modelAgnostic: "partial", postQuantum: "none", total: "15/25" },
@@ -214,7 +214,7 @@ const tenReasons = [
   {
     num: "01",
     title: "Only Platform with 100% Capability Coverage",
-    detail: "Atom scores 25/25 across all dimensions. The next closest competitor, Kore.ai, manages only 17/25. An 8-point lead in a 25-point scale is unprecedented in enterprise AI.",
+    detail: "ΔTOM scores 25/25 across all dimensions. The next closest competitor, Kore.ai, manages only 17/25. An 8-point lead in a 25-point scale is unprecedented in enterprise AI.",
   },
   {
     num: "02",
@@ -229,22 +229,22 @@ const tenReasons = [
   {
     num: "04",
     title: "Model-Agnostic = Future-Proof",
-    detail: "Atom works with any LLM — OpenAI, Anthropic, Google, Meta, or custom models. As the model landscape shifts, Atom customers are never locked in.",
+    detail: "ΔTOM works with any LLM — OpenAI, Anthropic, Google, Meta, or custom models. As the model landscape shifts, ΔTOM customers are never locked in.",
   },
   {
     num: "05",
     title: "Deploy Anywhere = Regulatory Compliance Ready",
-    detail: "VPC, on-prem, edge, air-gapped, multi-cloud. When regulators mandate data sovereignty, Atom is already compliant. Competitors offering SaaS-only are structurally blocked.",
+    detail: "VPC, on-prem, edge, air-gapped, multi-cloud. When regulators mandate data sovereignty, ΔTOM is already compliant. Competitors offering SaaS-only are structurally blocked.",
   },
   {
     num: "06",
     title: "$3.2M Closed = Capital Discipline + Minimal Dilution",
-    detail: "Built with radical efficiency — $3.2M closed, 2 ATOM Pro deals converting. Every dollar has been efficient. New investment goes to growth, not paying down technical debt or supporting bloated teams.",
+    detail: "Built with radical efficiency — $3.2M closed, 2 ΔTOM Pro deals converting. Every dollar has been efficient. New investment goes to growth, not paying down technical debt or supporting bloated teams.",
   },
   {
     num: "07",
     title: "Healthcare Expertise with Clinix AI",
-    detail: "78% reduction in clinical documentation time. Healthcare AI market growing at 48% CAGR. Clinix AI targets 1,000+ providers, proving Atom's vertical depth.",
+    detail: "78% reduction in clinical documentation time. Healthcare AI market growing at 48% CAGR. Clinix AI targets 1,000+ providers, proving ΔTOM's vertical depth.",
   },
   {
     num: "08",
@@ -259,7 +259,7 @@ const tenReasons = [
   {
     num: "10",
     title: "Post-Quantum Cryptography Readiness",
-    detail: "Atom is the only enterprise AI platform with post-quantum cryptography built in. As quantum computing advances, Atom-powered systems remain secure.",
+    detail: "ΔTOM is the only enterprise AI platform with post-quantum cryptography built in. As quantum computing advances, ΔTOM-powered systems remain secure.",
   },
 ];
 
@@ -292,7 +292,7 @@ const gtmTimeline = [
   {
     phase: "Scale",
     timeline: "H1 2027",
-    actions: ["Atom Browser GA", "Geographic expansion", "Channel scaling"],
+    actions: ["ΔTOM Browser GA", "Geographic expansion", "Channel scaling"],
     milestones: "$15M+ ARR, analyst recognition",
     icon: Globe,
   },
@@ -303,8 +303,8 @@ const portfolioCompanies = [
   { name: "ClinixAI", focus: "Clinical Documentation", integration: "78% reduction in documentation time", icon: Users },
   { name: "MoleculeAI", focus: "Molecular Research", integration: "AI orchestration for molecular analysis", icon: Layers },
   { name: "Vidzee", focus: "AI Video & PropTech", integration: "Automated listing video creation at scale", icon: Sparkles },
-  { name: "ATOM Browser", focus: "AI-Native Browser", integration: "Agent capabilities baked into browsing", icon: Globe },
-  { name: "ATOM Lead Gen", focus: "AI Sales Development", integration: "Cold calls, emails, closes with AI", icon: Target },
+  { name: "ΔTOM Browser", focus: "AI-Native Browser", integration: "Agent capabilities baked into browsing", icon: Globe },
+  { name: "ΔTOM Lead Gen", focus: "AI Sales Development", integration: "Cold calls, emails, closes with AI", icon: Target },
 ];
 
 const flywheelEffects = [
@@ -392,7 +392,7 @@ export default function MarketResearch() {
                 <span className="text-white/90">&amp; INTELLIGENCE</span>
               </h2>
               <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10">
-                Comprehensive market analysis validating the ATOM investment thesis
+                Comprehensive market analysis validating the ΔTOM investment thesis
               </p>
               <a
                 href="/antimatterai_market_research.pdf"
@@ -600,12 +600,12 @@ export default function MarketResearch() {
                     <TableRow
                       key={row.vendor}
                       className={
-                        row.vendor === "Atom"
+                        row.vendor === "ΔTOM"
                           ? "border-[#00e6d3]/20 bg-[#00e6d3]/[0.05]"
                           : "border-white/5"
                       }
                     >
-                      <TableCell className={`font-semibold ${row.vendor === "Atom" ? "text-[#00e6d3]" : "text-white/80"}`}>
+                      <TableCell className={`font-semibold ${row.vendor === "ΔTOM" ? "text-[#00e6d3]" : "text-white/80"}`}>
                         {row.vendor}
                       </TableCell>
                       {(["ip", "deploy", "genui", "modelAgnostic", "postQuantum"] as const).map((key) => (
@@ -613,7 +613,7 @@ export default function MarketResearch() {
                           <CapabilityBadge status={row[key]} />
                         </TableCell>
                       ))}
-                      <TableCell className={`text-center font-mono font-bold ${row.vendor === "Atom" ? "text-[#00e6d3]" : "text-white/60"}`}>
+                      <TableCell className={`text-center font-mono font-bold ${row.vendor === "ΔTOM" ? "text-[#00e6d3]" : "text-white/60"}`}>
                         {row.total}
                       </TableCell>
                     </TableRow>
@@ -724,12 +724,12 @@ export default function MarketResearch() {
         </Section>
 
         {/* ══════════════════════════════════════════════
-            5. 10 REASONS ATOM IS A BETTER BET
+            5. 10 REASONS ΔTOM IS A BETTER BET
         ══════════════════════════════════════════════ */}
         <Section>
           <div className="text-center mb-12">
             <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
-              10 Reasons Atom Is a Better Bet
+              10 Reasons ΔTOM Is a Better Bet
             </h3>
             <p className="text-white/50 text-lg">Why the investment thesis is structurally superior</p>
           </div>
@@ -1073,7 +1073,7 @@ export default function MarketResearch() {
               Full 25-Dimension Vendor Matrix
             </h3>
             <p className="text-white/50 text-lg mb-6">
-              Complete capability assessment — Atom achieves{" "}
+              Complete capability assessment — ΔTOM achieves{" "}
               <span className="text-[#00e6d3] font-semibold">full support on all 25 dimensions</span>
             </p>
 
@@ -1123,7 +1123,7 @@ export default function MarketResearch() {
                   <TableRow className="border-white/10">
                     <TableHead className="text-white/70 font-semibold w-10">#</TableHead>
                     <TableHead className="text-white/70 font-semibold">Capability</TableHead>
-                    <TableHead className="text-white/70 font-semibold text-center">Atom Status</TableHead>
+                    <TableHead className="text-white/70 font-semibold text-center">ΔTOM Status</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
