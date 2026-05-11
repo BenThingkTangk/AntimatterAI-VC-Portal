@@ -139,25 +139,79 @@ export function DtomPinnedKeynote({
 
   const activeChapter = chapters[activeIndex] ?? chapters[0];
 
-  // Scroll-driven chapter advancement. Self-contained (no GSAP dep) —
-  // pinning is handled by CSS `position: sticky` on the stage; this just
-  // maps scroll progress within the section to an active chapter index.
+  // Scroll-driven pin + chapter advancement. We manage `position: fixed`
+  // directly (overriding the CSS `position: sticky` fallback) so the pin
+  // ends precisely when the section ends — no trailing 100vh of stage
+  // scrolling out, which was the residual dead zone after PR #3.
   useEffect(() => {
     if (reducedMotion || isNarrow || !pinEnabled) return;
     if (typeof window === 'undefined') return;
     const section = sectionRef.current;
-    if (!section) return;
+    const stage = stageRef.current;
+    if (!section || !stage) return;
 
     const chapterCount = chapters.length;
     let raf = 0;
+    let prevState: 'before' | 'pinned' | 'after' | null = null;
+
+    const apply = (
+      state: 'before' | 'pinned' | 'after',
+      sectionRect: DOMRect,
+    ) => {
+      const s = stage.style;
+      if (state === 'pinned') {
+        // Always update geometry while pinned — width/left depend on layout.
+        s.position = 'fixed';
+        s.top = '0px';
+        s.left = `${sectionRect.left}px`;
+        s.width = `${sectionRect.width}px`;
+        s.height = '100vh';
+        s.zIndex = '1';
+        prevState = state;
+        return;
+      }
+      if (state === prevState) return;
+      prevState = state;
+      if (state === 'after') {
+        // Park the stage at the bottom of the section so the keynote stays
+        // mounted (for back-scroll re-entry) but is fully past the viewport.
+        s.position = 'absolute';
+        s.top = 'auto';
+        s.bottom = '0px';
+        s.left = '0px';
+        s.width = '100%';
+        s.height = '100vh';
+        s.zIndex = '';
+      } else {
+        s.position = '';
+        s.top = '';
+        s.bottom = '';
+        s.left = '';
+        s.width = '';
+        s.height = '';
+        s.zIndex = '';
+      }
+    };
 
     const update = () => {
       raf = 0;
       const rect = section.getBoundingClientRect();
-      const viewportH = window.innerHeight || 1;
-      // Pinned scroll window = section height minus one viewport (sticky stage occupies 100vh).
-      const pinnedDistance = Math.max(1, rect.height - viewportH);
-      // Progress: 0 when section's top hits viewport top, 1 when bottom hits viewport bottom.
+      const pinnedDistance = Math.max(1, rect.height);
+
+      // Pin lasts for the ENTIRE section height (not section_height - 100vh
+      // like sticky would). Once rect.bottom <= 0 the section is fully above
+      // the viewport and Doctrine is at the top — no stage-tail dead zone.
+      let state: 'before' | 'pinned' | 'after';
+      if (rect.top > 0) {
+        state = 'before';
+      } else if (rect.bottom <= 0) {
+        state = 'after';
+      } else {
+        state = 'pinned';
+      }
+      apply(state, rect);
+
+      // Progress: 0 at pin start, 1 at pin end.
       const scrolled = Math.min(Math.max(-rect.top, 0), pinnedDistance);
       const progress = scrolled / pinnedDistance;
       const idx = Math.min(
@@ -179,6 +233,9 @@ export function DtomPinnedKeynote({
       if (raf) window.cancelAnimationFrame(raf);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
+      // Reset inline styles on unmount.
+      const s = stage.style;
+      s.position = s.top = s.bottom = s.left = s.width = s.height = s.zIndex = '';
     };
   }, [reducedMotion, isNarrow, pinEnabled, chapters.length]);
 
@@ -274,11 +331,12 @@ export function DtomPinnedKeynote({
   }
 
   // Pinned desktop layout.
-  // Section height = pinned scroll window + 100vh (sticky stage). Each chapter
-  // gets `chapterDwellVh` of scroll. Keep it tight so the section ends right
-  // when the last chapter has had its moment — no dead trailing scroll.
-  const chapterDwellVh = 45;
-  const sectionHeightVh = chapters.length * chapterDwellVh + 100;
+  // The pin is JS-driven and lasts the full section height — so section
+  // height === pin distance, with NO trailing 100vh stage-tail. Each chapter
+  // gets `chapterDwellVh` of scroll; the last chapter dwells for its full
+  // budget, then Doctrine appears immediately.
+  const chapterDwellVh = 60;
+  const sectionHeightVh = chapters.length * chapterDwellVh;
   return (
     <section
       ref={sectionRef}
