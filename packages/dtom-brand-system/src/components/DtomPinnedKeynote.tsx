@@ -160,6 +160,8 @@ export function DtomPinnedKeynote({
       end: `+=${chapterCount * 100}%`,
       scrub: true,
       pin: stageRef.current,
+      pinSpacing: false,
+      anticipatePin: 1,
       onUpdate: (self: { progress: number }) => {
         const idx = Math.min(
           Math.floor(self.progress * chapterCount),
@@ -270,7 +272,7 @@ export function DtomPinnedKeynote({
     <section
       ref={sectionRef}
       className={`dtom-keynote ${className}`.trim()}
-      style={{ height: `${chapters.length * 100 + 100}vh` }}
+      style={{ height: `${chapters.length * 100}vh` }}
       aria-label="ΔTOM Sales Dominator — pinned chapter keynote"
     >
       {/* Sticky stage */}
